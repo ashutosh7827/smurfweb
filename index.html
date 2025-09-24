@@ -4,90 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smurf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    header
-{
-                                                                       
-  width:100%;
- 
-  font-size:25px;
-  padding:5px;
-  font-family:verdana;
-  background:rgb(39, 91, 245);
 
-
-                                                                               
-                                                                         
- }
-
-header ol
-{
-padding:0px;
-margin-left:25%;
+  html{
+    overflow-x: hidden;
 }
-
-header ol li
-{
-list-style:none;
-padding:10px;
-cursor:pointer;
-display:inline;
-margin:2%;
-
-
+body{
+    overflow-x: hidden;
 }
-
-
-header ol li:hover
-{
-color:red;
-transform:scale(1.10);
-transition:0.5s;
-border-radius:60px;
-
-
-}
-
-header ol li a:link
-{
-color:white;;
-text-decoration:none;
-font-size:23px;
-}
-
-header ol li a:visited
-{
-color:black;
-}
-
-header ol li a:hover
-{
-
-color:red;
-
-}
-
-header ol li a:active
-{
-color: red;
-
-}
-
+  
+   
 .pic
 {
 width:100%;
-height:800px;
-//padding:1%;
-//margin-left:-2%;
+height:600px;
+
 }
 
 .logo
 {
 width:10%;
 position:absolute;
-left:2%;
-top:3%;
+left:50%;
+top:25%;
 
 }
 
@@ -95,7 +36,7 @@ top:3%;
 {
  position:absolute;
  left:87%;
- top:2.9%;
+ top:5%;
  border:2px solid white;
  width:9%;
  text-align:center;
@@ -126,7 +67,7 @@ border-radius:8px;
 
 #button-top a:visited
 {
-    color:black;
+    color:rgb(247, 245, 245);
 }
 
 #button-top a:active
@@ -144,7 +85,7 @@ border-radius:8px;
 .box
 {
 width:20%;
-border:1px solid black;
+border:5px solid rgb(43, 150, 238);
 border-radius:5px;
 margin-top:0px;
 //margin-left:10%;
@@ -182,6 +123,7 @@ width:100%;
 text-align:center;
 font-size:15px;
 padding:0px;
+color:rgb(8, 110, 220);
 }
 
 .price
@@ -198,79 +140,6 @@ body {font-family: Verdana, sans-serif; margin:0}
 img {vertical-align: middle;}
 
 
-.slideshow-container {
-  max-width: 1500px;
-  position: relative;
-  margin: auto;
-}
-
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
 
 @keyframes fade {
   from {opacity: .4} 
@@ -342,7 +211,7 @@ transition:0.2s;
 #footer
 {
     background: rgb(91, 90, 90);
-   padding:7.5%;
+   padding:7.3%;
     float:left;
     
     
@@ -378,29 +247,260 @@ transition:0.2s;
     display:inline;
     margin:10%;
 }
+.nav-item .nav-link
+{
+  color:white;
+}
+
+.nav-item .nav-link:hover
+{
+  color:red;
+}
+
+@media screen and (max-width: 600px)
+{
+  .pic
+{
+width:100%;
+height:200px;
+
+}
+
+.box
+{
+width:90%;
+border:5px solid rgb(43, 150, 238);
+border-radius:5px;
+margin-top:0px;
+
+display:inline-block;
+margin:2%;
+background:white;
+overflow:hidden;
+
+
+
+}
 
 
 
 
+.image img
+{
+width:80%;
+
+
+}
+
+.image img:hover
+{
+
+    cursor:pointer;
+    transform:scale(1.05);
+    transition:0.5s;
+    
+}
+
+
+.name
+{
+text-align:center;
+font-size:20px;
+padding:0px;
+color:rgb(8, 110, 220);
+}
+
+.price
+{
+text-align:center;
+font-size:20px;
+
+
+}
+
+.w1
+{
+    width:100%;
+}
+
+.pics
+{
+width:90%;
+height:230px;
+box-shadow: 5px 5px 30px white;
+border-radius:10px;
+margin:10px;
+animation:ani 1s;
+margin-left:5%;
+
+}
+
+#button-top
+{
+ position:absolute;
+ left:5%;
+ top:1%;
+ border:2px solid white;
+ width:15%;
+ text-align:center;
+ font-size:10px;
+background:transparent;
+color:white;
+padding:10px;
+border-radius:8px;
+
+
+    
+}
+
+#button-top:hover
+{
+    color:red;
+    background:white;
+    cursor:pointer;
+}
+
+#button-top a:link
+{
+    color:white;
+    text-decoration: none;
+}
 
 
 
+#button-top a:visited
+{
+    color:rgb(247, 245, 245);
+}
+
+#button-top a:active
+{
+    color:red;
+}
+
+#button-top a:hover
+{
+    color:red;
+    
+}
+
+.logo
+{
+width:20%;
+position:absolute;
+left:30%;
+top:25%;
+
+}
+
+#footer
+{
+    background: rgb(91, 90, 90);
+    width:100%;
+   padding:10%;
+    float:left;
+    
+    
+ 
+    
+   
+    
+}
+
+#footer ol
+
+{
+    padding:2px;
+ margin-top:-4%;
+ 
+  
+}
+
+#footer li
+{
+    color:rgb(187, 185, 185);
+    list-style:none;
+   margin:10%;
+    font-family:verdana;
+    font-size:25px;
+    
+
+   
+
+}
+#footer h3
+{
+    color:white;
+    display:inline;
+    margin:10%;
+}
+.nav-item .nav-link
+{
+  color:white;
+}
+
+h1
+{
+    text-align:center;
+    background:rgb(113, 195, 249);
+    color:white;
+    width:100%;
+}
 
 
 
+#con{
+    width:100%;
+    font-size:15px;
+}
+
+nav{
+    width:100%;
+}
+
+#dis{
+    width:80%;
+}
 
 
+}
 
 
 </style>
 <body>
-    <img class="logo" src="images/logo.png">
-    <header>
-<ol>
-<li><a href="#">Home</a></li>
-<li><a href="#">Know about</a></li>
-<li><a href="#">Pictures</a></li>
-<li><a href="#">Book Ticket</a></li>
+    
+    
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="#"></a>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav text-center fs-4 w-100 text-light">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pictures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ticket.html">Book Ticket</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
  <div id="button-top">
     <a href="registration.html">
             Register
@@ -408,7 +508,8 @@ transition:0.2s;
             </div>
 </ol>
 </header>
-<img class="pic" src="images/p1.jpg">
+<img class="pic" src="images/s5.jpg">
+
 
 <h1>Recommend Smurf</h1>
 
@@ -496,66 +597,15 @@ transition:0.2s;
             
             </div>
 
-            <div class="slideshow-container">
+            
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="images/w1.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+<div id="mySlides">
+
+  <img src="images/w1.jpg" class="w1">
+  
 </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="images/w2.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
-</div>
 
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="images/w3.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
 
 <div id="con">
 <h1>Smurf Wikipedia</h1>
@@ -573,14 +623,8 @@ With the commercial success of the Smurfs came the merchandising empire of Smurf
 
 <h1>Characters</h1>
 
-<video controls loop muted width="1520px" height="240px">
 
-<source src="videos/v1.mp4" type="video/mp4" width="650">
-
-Your browser does not support the video tag.
-
-
-</video>
+<div id="name">
 <ul >
 <li>Smurfette</li>
 <li>Gargamel</li>
@@ -593,6 +637,7 @@ Your browser does not support the video tag.
 <li>Brainly Smurf</li>
 <li>Handy Smurf</li>
 </ul>
+</div>
 
 <h1>Gallery</h1>
 
@@ -605,7 +650,6 @@ Your browser does not support the video tag.
 <img class="pics" src="images\p5.jpg"  alt="jungle picture">
 </div>
 
-<hr></hr>
 
 
 <div id="dis">
