@@ -1,0 +1,159 @@
+
+<!doctype html>
+<html>
+<title>Form </title>
+<head> </head>
+<style>
+@keyframes ani
+{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes ani1
+{
+from{width:1%;}
+to{width:100%;}
+}
+
+
+.pic
+{
+width:100%;
+height:400px;
+box-shadow:5px 5px 5px black solid;
+}
+
+#container
+{
+width:50%;
+text-align:left;
+margin:auto;
+padding:5%;
+font-size:15px;
+border-radius:20px;
+ backdrop-filter: blur(10px); 
+      
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+
+
+
+}
+
+#container table
+{
+width:100%;
+padding:5%;
+}
+
+input[type="text"]{width:100%;height:40px; border-radius: 8px;  border:2px solid blue;}	
+input[type="submit"]{width:30%;height:30px;  font-size:20px;color:rgb(5, 5, 6);}
+input[type="reset"]{width:20%;height:30px;  font-size:20px;color:rgb(12, 12, 19);}
+input[type="date"]{width:100%;height:40px;  font-size:15px; border-radius: 8px; border:2px solid blue;}
+
+
+
+label
+{
+font-size:25px;
+}
+
+
+
+body
+{
+background:url(images/p1.jpg);
+background-size:cover;
+animation:ani 1s;
+animation:ani1 0.75s;
+
+}
+
+footer
+{
+margin-left:2%;
+padding:10%;
+font-size:20px;
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<body>
+<form>
+<div id="container">
+<table cellpadding="10">
+<caption style="font-size:40px; font-family:arial black;color:rgb(7, 7, 12);"> Book Your Ticket</caption>
+<tr>
+<td><label>Name </label></td>
+<td>
+<input type="text" title="Enter your name....." placeholder="Enter Your name.." required>
+</td>
+<tr>
+<td><label>Father name </label></td>
+<td>
+<input type="text" title="Enter your father name....." placeholder="Enter Your father name.." required>
+</td>
+
+<tr>
+<td><label>Mother name </label></td>
+<td>
+<input type="text" title="Enter your mother name....." placeholder="Enter Your mother name.." required>
+</td>
+
+
+<tr>
+<td><label> D.O.B</label></td>
+<td>
+<input type="Date" required>
+</td>
+</tr>
+<tr>
+<td><label>Mobile No.</label></td>
+<td>
+<input type="text" title="Enter your mobile....." placeholder="Enter Your mobile.." required>
+</td>
+
+
+
+<tr>
+<td></td>
+<td>
+<input type="Submit" value="Submit"><input type="Reset">
+
+
+
+
+</table>
+</form>
+</div>
+
+
+
+<div style="space:100px;height:100px;"> </div>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

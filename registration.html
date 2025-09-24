@@ -1,124 +1,439 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(137, 135, 135);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signup Form </title>
+  <style>
+      @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+    :root{
+      --bg: #0f172a;        
+      --panel:#111827;       
+      --muted:#94a3b8;       
+      --text:#e5e7eb;        
+      --brand:#6366f1;       
+      --brand-2:#22d3ee;     
+      --error:#ef4444;       
+      --ok:#10b981;         
+      --ring: color-mix(in srgb, var(--brand) 40%, transparent);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html,body 
+    { height: 100%; }
+    body
+    {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 10%, #1f2937 0%, transparent 60%),
+                  radial-gradient(800px 600px at 80% 0%, #0ea5e9 0%, transparent 40%),
+                  linear-gradient(180deg, var(--bg), #0b1022 60%);
+      color: var(--text);
+      display:grid; place-items:center;
+      padding: 24px;
+    }
+    .card{
+      width: min(920px, 100%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 90%, #0b1022), var(--panel));
+      border: 1px solid #1f2937;
+      border-radius: var(--radius);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
+      overflow:hidden;
+      display:grid; 
+      grid-template-columns: 1.1fr 1fr;
+       gap:0;
+         animation: slideIn 1s ease forwards;
+    }
+    @media (max-width: 880px){ .card{ grid-template-columns: 1fr; } }
 
-* {
-  box-sizing: border-box;
-}
+    .hero{
+      position:relative;
+       padding: 32px; 
+       overflow:hidden;
+        min-height: 100%;
+      display:flex; 
+      flex-direction:column;
+       justify-content:space-between;
+      background:
+        radial-gradient(650px 280px at 10% 20%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 60%),
+        radial-gradient(600px 300px at 90% 10%, color-mix(in srgb, var(--brand-2) 25%, transparent), transparent 60%);
+    }
+    .hero h1{ font-size: clamp(22px, 3.2vw, 34px); margin:0 0 8px; }
+    .hero p{ margin:0; 
+      color: var(--muted); 
+    }
+    .hero .bullets{ 
+      margin-top:18px;
+       display:grid; 
+       gap:10px; 
+      }
+    .chip{
+       display:inline-flex;
+        align-items:center; 
+        gap:8px; 
+        padding:8px 12px; 
+        border-radius:999px;
+         border:1px solid #233046; 
+         color:#c7d2fe; 
+         background: rgba(99,102,241,.08); 
+         font-size: 13px;
+          width:max-content;
+        
+        }
+    .badge{ font-size:12px;
+       color:#a5b4fc;
+       }
 
-.container 
-{
-    width:50%;
-    margin:auto;
-  padding: 16px;
-  border:1px solid black;
-  background-color: white;
-}
+    form{
+       padding: 32px;
+       }
+    .grid{
+       display:grid;
+        grid-template-columns: 1fr 1fr; 
+        gap:16px; }
+    .grid-1
+    { grid-column: 1 / -1;
+     }
+    @media (max-width: 720px)
+    { .grid
+      { grid-template-columns: 1fr;
+       } }
 
+    label{ 
+      display:block;
+       font-size: 13px; 
+       color: var(--muted);
+        margin: 6px 2px;
+       }
 
-input[type=text], input[type=password],  input[type=radio]
-{
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
+    .field{ 
+      position:relative; 
+    }
 
-input[type=text]:focus, input[type=password]:focus,  input[type=radio]:focus 
-{
-  background-color: #ddd;
-  outline: none;
-}
-
-
-hr 
-{
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-h1
-{
-    text-align:center;
+    .field input,
+    .field select{
+      width:100%;
+      background: #0b1220;
+      border: 1px solid #243041;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border .2s, box-shadow .2s, ;
+      background: .2s;
+    }
+    .field input::placeholder{ 
+      color:#64748b;
     
-}
+    }
 
+    .field input:focus,
+    .field select:focus{ 
+      border-color: var(--brand); 
+      box-shadow: 0 0 0 4px var(--ring);
+     }
 
-.registerbtn 
-{
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
+    .error-msg{ 
+      font-size:12px;
+       color: var(--error); 
+       margin:6px 2px 0; 
+       min-height: 16px; 
+      }
 
-.registerbtn:hover
- {
-  opacity: 1;
-}
+    .ok-msg{ 
+      color: var(--ok);
+     }
 
-a 
-{
-  color: dodgerblue;
-}
+    .pw-wrap{
+       position: relative;
+       }
+    .toggle-eye{
+       position:absolute; 
+       right:10px;
+        top:50%; 
+        translate:0 -50%;
+         cursor:pointer;
+          font-size:12px;
+           color:#9aa6bd;
+            background:transparent;
+             border:none; 
+            }
 
+    .meter{
+       height: 8px;
+        background:#111827;
+         border-radius:999px; 
+         overflow:hidden;
+          border:1px solid #243041;
+           margin-top:8px;
+           }
+    .meter > i{ 
+      display:block; 
+      height:100%;
+       width:0%; 
+       background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981); 
+       transition: width .3s ease;
+       }
+    .meter-label{
+       font-size:12px; 
+       color: var(--muted);
+        margin-top:6px; 
+      }
 
-.signin 
-{
-  background-color: #f1f1f1;
-  text-align: center;
-}
+    .actions{ 
+      display:flex; 
+      align-items:center;
+       justify-content:space-between; 
+       gap:16px; 
+       margin-top: 18px; 
+      }
+    .btn{
+      background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 40%, #0ea5e9), var(--brand));
+      color:white;
+       border:0;
+        padding:12px 16px; 
+        border-radius: 12px;
+         cursor:pointer;
+          font-weight:600;
+      box-shadow: 0 10px 25px rgba(99,102,241,.25);
+    }
+    .btn:disabled{
+       opacity:.6;
+        cursor:not-allowed;
+         box-shadow:none;
+         }
+    .link{ 
+      background:transparent; 
+      border:0; color:#93c5fd; 
+      cursor:pointer; 
+      text-decoration:underline; 
+    }
 
-input[type="radio"]{width:10%;height:20px;  font-size:30px;}
+    .terms{ 
+      display:flex; 
+      gap:10px; 
+      align-items:flex-start; 
+      font-size: 13px; 
+      color: var(--muted); 
+    }
 
-</style>
+    .toast{ position: fixed; inset:auto 20px 20px auto; background:#0b1220; border:1px solid #1f2937; padding:12px 14px; border-radius: 12px; display:none; }
+    .toast.show
+    { display:block; 
+      animation: pop .3s ease; 
+    }
+    @keyframes 
+    pop{ 
+      from{ 
+        transform: translateY(8px); opacity:0; 
+      } 
+      to{ 
+        transform:none; opacity:1; 
+      } 
+    }
+  </style>
 </head>
 <body>
+  <div class="card" role="region" aria-labelledby="title">
+    <section class="hero">
+      <div>
+        
+        <h1 id="title">Create your account</h1>
+        <p>Client-side validation, password strength, and a11y-friendly markup—no libraries.</p>
+        <div class="bullets">
+          <span class="badge">• Realtime validation</span>
+          <span class="badge">• Strong password meter</span>
+          <span class="badge">• Responsive layout</span>
+        </div>
+      </div>
+      <small class="badge">Tip: Try an invalid email or weak password to see errors.</small>
+    </section>
 
-<form action="/action_page.php">
-  <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+    <form id="signupForm" novalidate>
+      <div class="grid">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Ashutosh Mathur" required minlength="2" />
+          <div class="error-msg" id="nameError"></div>
+        </div>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="abcd90@example.com" required />
+          <div class="error-msg" id="emailError"></div>
+        </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <div class="field">
+          <label for="phone">Phone (India)</label>
+          <input id="phone" name="phone" type="tel" placeholder="7827220457" pattern="^[6-9]\d{9}$" required />
+          <div class="error-msg" id="phoneError"></div>
+        </div>
 
-    <label for="psw-repeat"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="psw-repeat" id="psw-repeat" required>
+        <div class="field">
+          <label for="role">Role</label>
+          <select id="role" name="role" required>
+            <option value="" hidden>Select </option>
+            <option>Student</option>
+            <option>Developer</option>
+            <option>Designer</option>
+            <option>Employee</option>
+            <option>Creator</option>
+            <option>Other</option>
+          </select>
+          <div class="error-msg" id="roleError"></div>
+        </div>
 
-    <label for="age"><b>Date of Birth</b></label>
-    <input type="text" placeholder="Enter your age" name="age" id="age" required>
+        <div class="field grid-1">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input id="password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" aria-describedby="pwHelp" />
+            <button class="toggle-eye" type="button" aria-label="Show or hide password" id="togglePw">👁</button>
+          </div>
+          <div class="meter" aria-hidden="true"><i id="pwBar"></i></div>
+          <div class="meter-label" id="pwHelp">Use letters, numbers & symbols.</div>
+          <div class="error-msg" id="passwordError"></div>
+        </div>
 
-    <label for="gender"><b>Gender</b></label>
-    Male<input type="radio" value="Male" name="gender">
-female<input type="radio" value="female" name="gender">
-other<input type="radio" value="other" name="gender">
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <div class="field grid-1">
+          <label for="confirm">Confirm password</label>
+          <input id="confirm" name="confirm" type="password" placeholder="Retype your password" required />
+          <div class="error-msg" id="confirmError"></div>
+        </div>
 
-    <button type="submit" class="registerbtn">Register</button>
+        <div class="grid-1 terms">
+          <input id="terms" name="terms" type="checkbox" required />
+          <label for="terms">I agree to the <a href="#" aria-label="View terms" class="link" onclick="event.preventDefault()">Terms & Conditions</a>.</label>
+        </div>
+
+        <div class="grid-1 actions">
+          <button class="btn" id="submitBtn" type="submit">Create account</button>
+          <button class="link" type="reset">Reset</button>
+        </div>
+      </div>
+    </form>
   </div>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="login.html">Sign in</a>.</p>
-  </div>
-</form>
 
+  <div class="toast" role="status" aria-live="polite" id="toast">✅ Form submitted! (Demo)</div>
+
+  <script>
+    
+    const $ = (sel) => document.querySelector(sel);
+    const setError = (id, msg = "") => { const el = $(id); if(!el) return; el.textContent = msg; };
+
+   
+    const form = $('#signupForm');
+    const btn = $('#submitBtn');
+    const toast = $('#toast');
+
+    const fields = {
+      name: { input: $('#name'), error: '#nameError' },
+      email:{ input: $('#email'), error: '#emailError' },
+      phone:{ input: $('#phone'), error: '#phoneError' },
+      role: { input: $('#role'), error: '#roleError' },
+      password: { input: $('#password'), error: '#passwordError' },
+      confirm: { input: $('#confirm'), error: '#confirmError' },
+      terms: { input: $('#terms'), error: null }
+    };
+
+    
+    $('#togglePw').addEventListener('click', () => {
+      const i = fields.password.input;
+      i.type = i.type === 'password' ? 'text' : 'password';
+    });
+
+    
+    const pwBar = $('#pwBar');
+    const strength = (pw) => {
+      let score = 0;
+      if (!pw) return 0;
+      if (pw.length >= 8) score++;
+      if (/[A-Z]/.test(pw)) score++;
+      if (/[a-z]/.test(pw)) score++;
+      if (/\d/.test(pw)) score++;
+      if (/[^A-Za-z0-9]/.test(pw)) score++;
+      if (pw.length >= 12) score++;
+      return Math.min(score, 5);
+    };
+
+    fields.password.input.addEventListener('input', (e) => {
+      const s = strength(e.target.value);
+      const widths = ['10%','30%','50%','70%','90%','100%'];
+      pwBar.style.width = widths[s];
+    });
+
+    
+    const validators = {
+      name: (v) => v.trim().length >= 2 || 'Enter your full name',
+      email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || 'Enter a valid email',
+      phone: (v) => /^[6-9]\d{9}$/.test(v) || 'Enter a valid 10-digit Indian number',
+      role:  (v) => v !== '' || 'Select a role',
+      password: (v) => v.length >= 8 || 'Password must be at least 8 characters',
+      confirm: (v) => v === fields.password.input.value || 'Passwords do not match',
+      terms: (v, el) => el.checked || 'You must accept the terms'
+    };
+
+    const attach = (key) => {
+      const { input, error } = fields[key];
+      const handler = () => {
+        const rule = validators[key];
+        const result = rule(input.value, input);
+        const ok = result === true;
+        if(!error) return ok; 
+        input.setAttribute('aria-invalid', String(!ok));
+        setError(error, ok ? '' : result);
+        return ok;
+      };
+      input.addEventListener('input', handler);
+      input.addEventListener('blur', handler);
+      return handler;
+    };
+
+    const handlers = Object.keys(fields).map(attach);
+
+   
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+      for (const key of Object.keys(fields)) {
+        const { input, error } = fields[key];
+        const rule = validators[key];
+        const result = rule(input.value, input);
+        const ok = result === true;
+        if (error) {
+          input.setAttribute('aria-invalid', String(!ok));
+          setError(error, ok ? '' : result);
+        } else if (!ok) {
+          alert(result);
+        }
+        valid = valid && ok;
+      }
+
+      if (!valid) return;
+
+      
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('Form data', data);
+
+      toast.classList.add('show');
+      btn.disabled = true;
+      setTimeout(() => { toast.classList.remove('show'); btn.disabled = false; form.reset(); pwBar.style.width = '0%'; }, 1600);
+    });
+
+    
+    form.addEventListener('reset', () => {
+      for (const { error } of Object.values(fields)) if(error) setError(error, '');
+      pwBar.style.width = '0%';
+    });
+  </script>
 </body>
 </html>
